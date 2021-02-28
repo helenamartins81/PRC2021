@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>PRC_TPC1</key>
+        <title>Geração de um dataset em TTL</title>
+        <subtitle>TPC1 sobre dataset em Turtle</subtitle>
+        <bdate>22-02-2021</bdate>
+        <edate>01-03-2021</edate>
+        <supervisor>José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A82500">
+            <name>Helena Poças Martins</name>
+            <email>a82500@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Para o primeiro TPC da UC de PRC foi-nos pedida a elaboração de um dataset para que fosse possível a expansão da Ontologia que foi definida durante a aula.</p>
+        <p>O dataset elaborado foi definido em JSON com a ajuda do <b>JSON Generator</b>. 
+            Posteriormente foi feito um conversor, na linguagem <b>Python</b> de modo a converter esse dataset para <b>Turtle</b>. </p>
+        <p>Estes dados gerados foram então adicionados à Ontologia inicial definida na aula, onde foi aplicado o Reasoner do <b>Protegé</b> para obter a ontologia com os axiomas inferidos.</p>
+    </abstract>
+    <deliverables>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC1/dados.json"> Dataset em JSON </link>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC1/dados.ttl"> Dataset em Turtle </link>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC1/parser.py"> Conversor do Dataset de JSON para TTL </link>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC1/tpc1.ttl"> Ontologia inferida </link>
+
+        
+    </deliverables>
+</pr>
