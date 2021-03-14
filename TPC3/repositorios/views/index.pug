@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+  .w3-container
+        .w3-card-4
+            header.w3-container.w3-teal.w3-margin-top
+                h3 Repositórios em GraphDB
+        .w3-card-4
+
+            ul  
+              each r in lista
+                li 
+                  a(href="/rep/"+ r.id) #{r.id} - #{r.tit}
+
+

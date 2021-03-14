@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>PRC_TPC3</key>
+        <title>Queries em SPARQL</title>
+        <subtitle>TPC3 sobre queries em SPARQL sobre uma Ontologia no GraphDB</subtitle>
+        <bdate>08-03-2021</bdate>
+        <edate>15-03-2021</edate>
+        <supervisor>José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A82500">
+            <name>Helena Poças Martins</name>
+            <email>a82500@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Para o terceiro TPC da UC de PRC foi-nos pedida a elaboração de uma interface para a execução de algumas queries em SPARQL. </p>
+        <p>Com as queries realizadas é possível saber quais os repositórios existentes no GraphDB.</p>
+        <p>Para cada um dos repositórios é possível determinar as suas classes e quais os indivíduos de cada uma dessas classes. Também é possível visualizar quais as propriedades de cada um desses indivíduos.</p>
+        
+    </abstract>
+    <deliverables>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC3/repositorios/routes/index.js">Rotas da aplicação </link>
+        
+    </deliverables>
+</pr>
