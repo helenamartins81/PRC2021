@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  
+  .w3-container
+        .w3-card-4
+            header.w3-container.w3-teal.w3-margin-top
+                h3 Características do elemento
+
+        .w3-table
+            table
+               tr
+                  th Característica
+                  th 
+                  each val in elem
+                    if(val.o != undefined)
+                      tr
+                         td= val.p
+                         td= val.o

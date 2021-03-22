@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>PRC_TPC4</key>
+        <title>Aplicação sobre tabela periódica</title>
+        <subtitle>TPC4 sobre queries em SPARQL sobre uma Ontologia no GraphDB</subtitle>
+        <bdate>15-03-2021</bdate>
+        <edate>22-03-2021</edate>
+        <supervisor>José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A82500">
+            <name>Helena Poças Martins</name>
+            <email>a82500@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Para o quarto TPC da UC de PRC foi-nos pedida a elaboração de uma interface para a execução de algumas queries em SPARQL. </p>
+        <p>A aplicação desenvolvida seria sobre uma Ontologia sobre a tabela periódica.</p>
+        <p>Para a realização da aplicação foi necessário criar um repositório no GraphDB, com a respetiva ontologia.</p>
+        <p>Na interface é possível ver quais os elementos existentes na tabela periódica, os seus grupos e períodos.</p>
+
+    </abstract>
+    <deliverables>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC4/TabelaPeriodica/routes/index.js">Rotas da aplicação </link>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC4/Periodic_Table.rdf"> Ontologia da Tabela Periódica </link>
+        
+        
+    </deliverables>
+</pr>
