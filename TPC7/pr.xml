@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>PRC_TPC7</key>
+        <title>Ontologia de um dataset de cidades</title>
+        <subtitle>TPC7 sobre a criação de uma ontologia de um dataset de cidades portuguesas</subtitle>
+        <bdate>26-04-2021</bdate>
+        <edate>03-05-2021</edate>
+        <supervisor>José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A82500">
+            <name>Helena Poças Martins</name>
+            <email>a82500@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Para o sétimo TPC da UC de PRC era necessária a criação de uma ontologia, utilizando o Protégé. </p>
+        <p>A ontologia criada seria sobre um dataset com diversas cidades e um conjunto de ligações entre as mesmas.</p>
+        <p>A parte estrutural da ontologia foi criada no Protégé e, posteriormente, foi criado um script em Python para se povoar.</p>
+        
+    </abstract>
+    <deliverables>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC7/individuals.py"> Script em Python para povoar a ontologia  </link>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC7/mapa.ttl"> Ontologia inicial em Turtle   </link>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC7/inf-mapa.ttl"> Ontologia inferida </link>
+        <link url="https://github.com/helenamartins81/PRC2021/blob/main/TPC7/mapavirtual.json"> Dataset utilizado em JSON </link>
+        
+    </deliverables>
+</pr>
