@@ -1,0 +1,99 @@
+1.Tios:
+PREFIX f:<http://prc.di.uminho.pt/2021/myfamily#>
+
+INSERT DATA {
+    f:temTio rdf:type owl:ObjectProperty .
+}
+
+construct{
+	?pessoa f:temTio ?tio .    
+}
+where {
+	?pessoa a f:Pessoa.
+    ?tio a f:Pessoa .
+	?pessoa f:temProgenitor ?progenitor.
+    ?progenitor f:temProgenitor ?avo .
+    ?avo f:eProgenitorDe ?tio .
+ 	filter(?progenitor != ?tio)
+}
+
+
+2. Trisavô
+
+INSERT DATA {
+    f:temTrisavô rdf:type owl:ObjectProperty .
+}
+
+construct {
+    ?pessoa f:temTrisavô ?trisavô .
+}
+where {
+    ?pessoa a f:Pessoa .
+    ?trisavô a f:Pessoa .
+    ?pessoa f:temProgenitor ?progenitor .
+    ?progenitor f:temProgenitor ?avô .
+    ?avô f:temProgenitor ?bisavô .
+    ?bisavô f:temProgenitor ?trisavô .
+}
+
+3. Ascendentes
+
+INSERT DATA {
+    f:temAscendente rdf:type owl:ObjectProperty .
+}
+
+construct {
+    ?pessoa f:temAscendente ?ascendente .
+}
+where {
+    ?pessoa a f:Pessoa .
+    ?ascendente a f:Pessoa .
+    ?pessoa f:temProgenitor+ ?ascendente . 
+}
+
+
+
+4. Meio-Irmão
+
+INSERT DATA {
+    f:temMeioIrmão rdf:type owl:ObjectProperty .
+}
+
+construct{
+	?pessoa1 f:temMeioIrmão ?pessoa2.
+    ?pessoa2 f:temMeioIrmão ?pessoa1.
+}
+where {
+    ?pessoa1 a f:Pessoa.
+    ?pessoa2 a f:Pessoa.
+	?pessoa1 f:temPai ?pai1. 
+    ?pessoa1 f:temMae ?mãe1. 
+    ?pessoa2 f:temPai ?pai2. 
+    ?pessoa2 f:temMae ?mãe2.
+    {filter(?mãe1 = ?mãe2) .
+     filter(?pai1 != ?pai2) .}
+    union
+    {filter(?mãe1 != ?mãe2) .
+    filter(?pai1 = ?pai2) .}
+            
+    filter(?pessoa1 != ?pessoa2).
+}
+
+5. 
+INSERT DATA {
+    f:temSexo rdf:type owl:ObjectProperty .
+    f:Feminino rdf:type owl:Class .
+    f:Masculino rdf:type owl:Class .
+}
+
+construct{
+	?mulher f:temSexo f:Feminino.
+    ?homem f:temSexo f:Masculino.
+}
+where {
+    ?mulher a f:Pessoa.
+    ?homem a f:Pessoa.
+    ?filho a f:Pessoa . 
+	?filho :temPai ?homem. 
+    ?filho :temMae ?mulher.           
+}

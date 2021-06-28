@@ -1,0 +1,43 @@
+a) Quantos filmes?
+PREFIX m:<http://www.di.uminho.pt/prc2021/cinema#>
+
+SELECT (count(distinct ?filme) as ?numFilmes) WHERE { 
+	?filme a m:Filme .
+}
+
+b) Quantos filmes em 1994?
+SELECT (count(distinct ?filme) as ?numFilmes) WHERE { 
+	?filme a m:Filme .
+    ?filme m:data 1994 .
+}
+
+c) Quantos filmes de Dan Aykroyd?
+SELECT (count(distinct ?filme) as ?numFilmes) WHERE { 
+	?filme a m:Filme .
+    ?filme m:temParticipaçãoDe ?ator .
+    ?ator m:nome "Dan Aykroyd" .
+}
+
+d) Quantos filmes por ano?
+SELECT ?ano (count(distinct ?filme) as ?numFilmes) WHERE { 
+	?filme a m:Filme .
+    ?filme m:data ?ano .
+}
+group by ?ano
+
+e) Quantos filmes por genero?
+SELECT ?genero (count(distinct ?filme) as ?numFilmes) WHERE { 
+	?filme a m:Filme .
+    ?filme m:temGénero ?gen .
+    ?gen m:designação ?genero .
+}
+group by ?genero
+
+f) Filmes do Keanu Reeves
+SELECT ?filme WHERE { 
+	?f a m:Filme .
+    ?f m:temParticipaçãoDe ?ator .
+    ?ator m:nome "Keanu Reeves" .
+    ?f m:title ?filme .
+}
+order by ?filme
