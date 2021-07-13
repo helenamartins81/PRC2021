@@ -1,0 +1,49 @@
+Exercicio 2
+
+5. Queries
+m:<http://www.di.uminho.pt/prc2021/mapa#>
+
+. Lista de cidades, ordenada alfabeticamente pelo nome
+SELECT ?cidade WHERE {
+    ?c rdf:type m:Cidade .
+    ?c m:nome ?cidade .
+}
+
+order by ?cidade
+
+. Distribuição das cidades por distrito: lista de distritos ordenada alfabeticamente em que para cada um se indica quantas cidades tem;
+
+SELECT ?distrito (count (distinct ?cidade) as ?numCidades) WHERE {
+    ?d rdf:type m:Distrito .
+    ?d m:nome ?distrito .
+    ?distrito m:temCidade ?cidade .
+}
+
+group by ?distrito
+order by ?distrito
+
+. Que cidades têm ligações diretas com Braga? (Considera Braga como origem mas também como destino)
+
+SELECT ?cidade WHERE {
+    ?lig rdf:type m:Ligação .
+    ?cidade rdf:type m:Cidade .
+    ?cidade m:nome "Braga" .
+    {
+        ?lig m:temOrigem ?cidade .
+    } union {
+        ?lig m:temDestino ?cidade .
+    }
+    
+}
+
+. Partindo de Braga, que cidades se conseguem visitar? (Apresenta uma lista de cidades ordenada alfabeticamente)
+
+SELECT distinct ?cidadeDestino WHERE {
+    ?lig rdf:type m:Ligação .
+    ?lig m:temOrigem ?cidade .
+    ?cidade m:nome "Braga" .
+    ?lig m:temDestino ?destino .
+    ?destino m:nome ?cidadeDestino .
+}
+
+order by ?cidadeDestino

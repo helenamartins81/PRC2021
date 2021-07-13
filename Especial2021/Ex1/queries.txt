@@ -1,0 +1,59 @@
+1.Quantos alunos estão registados? (inteiro)
+
+PREFIX c: <http://www.di.uminho.pt/prc2021/avaliacao#>
+
+SELECT (count(distinct ?aluno) as ?num) WHERE { 
+	?aluno a c:Aluno .
+}
+
+
+2.Quantos alunos frequentam o curso "LCC"? (inteiro)
+
+SELECT (count(distinct ?aluno) as ?num) WHERE { 
+	?aluno a c:Aluno .
+    ?aluno c:curso "LCC" .
+}
+
+3.Que alunos tiveram nota positiva no exame de época normal? (lista ordenada alfabeticamente por nome com: idAluno, nome, curso, nota do exame)
+
+SELECT ?id ?nome ?curso ?nota WHERE { 
+	?aluno a c:Aluno .
+    ?aluno c:realizaExame ?exame .
+    ?exame c:tipoExame "normal" .
+    ?exame c:nota ?nota .
+    ?aluno c:idAluno ?id .
+    ?aluno c:nome ?nome .
+    ?aluno c:curso ?curso .
+    
+    FILTER(?nota > 10)
+}
+group by ?nome ?id ?curso ?nota
+
+
+
+4.Qual a distribuição dos alunos pelas notas do projeto? (lista com: nota e número de alunos que obtiveram essa nota)
+
+SELECT ?nota (count(distinct ?aluno) as ?numAlunos) WHERE { 
+	?aluno a c:Aluno .
+    ?aluno c:realizaProjeto ?p .
+    ?p c:nota ?nota .
+}
+group by ?nota 
+
+
+
+5.Quais os alunos mais trabalhadores durante o semestre? (lista ordenada por ordem decrescente do total: idAluno, nome, curso, total = somatório dos resultados dos TPC)
+
+
+
+
+
+
+6.Qual a distribuição dos alunos pelos vários cursos? (lista de cursos, ordenada alfabeticamentepor curso, com: curso, número de alunos nesse curso)
+
+SELECT ?curso (count(distinct ?aluno) as ?numAlunos) WHERE { 
+	?aluno a c:Aluno .
+    ?aluno c:curso ?curso .
+}
+group by ?curso 
+
